@@ -102,7 +102,9 @@ add_action( 'widgets_init', 'dimension_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dimension_scripts() {
-	wp_enqueue_style( 'dimension-style', get_stylesheet_uri() );
+	// wp_enqueue_style( 'dimension-style', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'dimension-style', get_template_directory_uri() . '/public/css/main.css' );
 
 	wp_enqueue_script( 'dimension-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

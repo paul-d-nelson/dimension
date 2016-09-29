@@ -1,11 +1,38 @@
 {
   "name": "dimension",
   "version": "1.0.0",
-  "description": "[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)",
-  "main": "index.js",
+  "description": "The official theme for storydimension.com.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run gulp",
+    "build:dev": "gulp build",
+    "build:prod": "gulp build --production",
+    "gulp": "gulp"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Paul Nelson",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.5.0",
+    "axis": "^0.6.1",
+    "browser-sync": "^2.16.0",
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-jshint": "^2.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.5.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.3",
+    "jshint-stylish": "^2.2.1",
+    "lost": "^7.1.0",
+    "path": "^0.12.7",
+    "rupture": "^0.6.1"
+  },
+  "dependencies": {}
 }
