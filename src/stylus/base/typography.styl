@@ -1,0 +1,67 @@
+text-selection(blue, white)
+
+html
+  font-size: 62.5%
+
++mobile()
+  html
+    font-size: 50%
+
+body
+  font-family: $font-main
+  font-size: $font-size
+  // font-kerning: normal
+  // font-variant-ligatures: common-ligatures contextual
+  // font-feature-settings: "kern", "liga", "clig", "calt"
+  color: $black
+  background: $color-main-bg
+
+h1
+  font-weight: 400
+  font-size: 2.4rem
+
+h2
+  font-weight: 400
+  font-size: 2rem
+
+h3
+  font-weight: 500
+  font-size: 1.8rem
+
+h1
+h2
+h3
+  font-family: $font-header
+  font-weight: 700
+  margin-top: 1.75em
+  margin-bottom: .15em
+
+p
+  lh: $line-height
+
+pre
+  pre()
+  font-family: $font-mono
+  font-size: 1.4rem
+  border: 0
+  border-top: 1px solid gray
+  border-bottom: 1px solid gray
+  border-radius: 0
+  background-color: $color-code-bg
+
+a
+  // link: $color-link-fg
+  // transition: none
+  text-decoration: none
+  &:link
+  &:visited
+    color: $color-link-fg
+  &:hover
+  &:active
+    color: darken($color-link-fg, 30%)
+
+hr
+  width: 15rem
+  color: silver
+  background-color: silver
+  border: solid .5px silver

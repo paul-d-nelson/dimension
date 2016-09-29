@@ -1,0 +1,27 @@
+// Mixin: Text selection
+//
+// Style the selected text; removes any text shadow to eliminate
+// blurry text.
+//
+// Block level.
+
+text-selection($background, $color)
+  ::selection
+    background: $background
+    color: $color
+    text-shadow: none
+
+// Mixin: Line Height
+//
+// Add a line height to any selector, and modify the margins
+// above and below to match the height in ems. Geared towards
+// use on the paragraph element.
+//
+// ex:
+// p
+//   lh: 1.3
+
+lh($height)
+  line-height: $height
+  margin-top: ($height)em
+  margin-bottom: ($height)em
