@@ -1,7 +1,7 @@
 $(document).ready(function() {
   'use strict';
 
-  $('.menu > ul').addClass('nav-menu');
+  // $('.menu > ul').addClass('nav-menu');
 
   var didScroll = false;
 
@@ -17,28 +17,20 @@ $(document).ready(function() {
     }
   }, 250);
 
-  var headerHeight = $('.site-header').outerHeight(),
-      header = $('.header-hover');
+  var headerHeight = $('.site-header').outerHeight();
+  var page = $('#page');
 
   function hasScrolled() {
     if ($(window).scrollTop() >= headerHeight)
-      header.addClass('is-scrolled');
+      page.addClass('is-scrolled');
     else
-      header.removeClass('is-scrolled');
+      page.removeClass('is-scrolled');
   }
-
-  header.mouseenter(function() {
-    header.removeClass('is-hidden');
-  });
-
-  header.mouseleave(function() {
-    header.addClass('is-hidden');
-  })
 
   // Toggle menu button active state
   // -------------------------------
   var menuToggle = $('.menu-toggle'),
-      siteHeader = $('.site-header'),
+      siteHeader = $('.header-container'),
       mainNav = $('.main-navigation');
 
 

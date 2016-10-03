@@ -1,25 +1,46 @@
-.header-hover
-  position: fixed
-  height: 200px
-  width: 100%
-  opacity: 1
-  transition: opacity 0.3s
-  &.is-hidden.is-scrolled
-    opacity: 0
-
 .site-header
   overflow: hidden
   position: fixed
-  display: flex
-  height: 72px
+  height: $size-header-h
   top: 0
   left: 0
   right: 0
   z-index: 100
+
+.header-container
+  position: fixed
+  top: 0
   background: $color-header-bg
+  height: 0
+  width: 100%
+  transition: height 0.3s
+  &.is-active
+    height: $size-header-h
 
 .site-title
   font-size: 2.4rem
   font-family: $font-header
+  margin: 0
   a
     link-simple: $color-main-fg
+
+.site-content
+  margin-top: $size-header-h
+
+.site-branding
+  center-vertically()
+  position: absolute
+  transition: top .3s
+
+.is-scrolled
+  .site-branding
+    top: -100%
+
+.header-container.is-active
+  .site-branding
+    top: 50%
+
+.to-top
+  position: fixed
+  bottom: 3px
+  right: @bottom

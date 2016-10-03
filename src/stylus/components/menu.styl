@@ -1,17 +1,17 @@
 .menu
-  opacity: 0
   position: absolute
-  top: 50%
-  right: 80px
+  top: -100%
+  right: $size-menu-button * 2
   transform: translateY(-50%)
-  transition: opacity 0.3s
+  transition: top .3s
 
 .main-navigation.is-active
   .menu
-    opacity: 1
+    top: 50%
 
-.nav-menu
-  inline-list()
+.menu
+  ul
+    inline-list()
 
 line()
   display: block
@@ -22,11 +22,11 @@ line()
 
 .menu-toggle
   display: block
-  position: fixed
+  position: absolute
   margin: 0
   padding: 0
-  top: 16px
-  right: 1rem
+  top: 0
+  right: ($size-menu-button / 2)
   width: $size-menu-button
   height: @width
   background: transparent
