@@ -25,3 +25,71 @@ lh($height)
   line-height: $height
   margin-top: ($height)em
   margin-bottom: ($height)em
+
+// Mixin: Underline Fancy
+//
+// A style for text which includes a sharper underline suitable for
+// retina screens.
+//
+// ex. underline-fancy()
+// ex. underline-fancy: green
+
+underline-fancy($border = $blue, $height = 97.5%)
+  text-decoration: none
+  background-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 49%, $border 50%, $border 100%)
+  background-repeat: repeat-x
+  background-size: 2px 2px
+  background-position: 0 $height
+
+// Mixin: Link Fancy
+//
+// A style for links which includes a sharper underline suitable for
+// retina screens.
+//
+// ex. link-fancy()
+// ex. link-fancy: green
+
+link-fancy($border = $blue, $color = $blue, $lighten = false)
+  reset-link()
+  color: $color
+  underline-fancy: $border
+
+  &:hover
+    if $lighten
+      color: lighten($color, 100%)
+    else
+      color: $color
+    background-image: none
+
+  &:visited
+    opacity: .8
+
+link-fancy-reverse($border = $blue, $color = $blue, $lighten = false)
+  reset-link()
+  color: $color
+  background-image: none
+
+  &:hover
+    if $lighten
+      color: lighten($color, 100%)
+    else
+      color: $color
+    underline-fancy: $border
+
+  &:visited
+    opacity: .8
+
+// Mixin: Link Simple
+//
+// A basic link that is just one color in all states, no underlines or anything.
+//
+// ex: link-simple: #000
+
+link-simple($color)
+  reset-link()
+  color: $color
+  &:link
+  &:hover
+  &:visited
+  &:active
+    color: $color

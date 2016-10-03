@@ -50,8 +50,6 @@ pre
   background-color: $color-code-bg
 
 a
-  // link: $color-link-fg
-  // transition: none
   text-decoration: none
   &:link
   &:visited
@@ -65,3 +63,24 @@ hr
   color: silver
   background-color: silver
   border: solid .5px silver
+
+// Main content width
+.entry-content
+  h1
+  h2
+  h3
+  p
+  ul
+  ol
+  pre
+  / .entry-header
+    max-width: $font-size * 33
+    margin-left: auto
+    margin-right: auto
+    +below(600px)
+      margin-left: 10px
+      margin-right: 10px
+
+  blockquote
+    max-width: $font-size * 28
+    margin: auto

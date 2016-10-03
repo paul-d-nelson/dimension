@@ -71,18 +71,6 @@ endif;
 add_action( 'after_setup_theme', 'dimension_setup' );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function dimension_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'dimension_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'dimension_content_width', 0 );
-
-/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -100,6 +88,40 @@ function dimension_widgets_init() {
 }
 add_action( 'widgets_init', 'dimension_widgets_init' );
 
+function dimension_the_custom_logo() {
+	if ( function_exists( 'the_custom_logo' ) ) {
+		the_custom_logo();
+	}
+}
+
+/**
+ * Wrap the inserted image html with <figure>
+ * if the theme supports html5 and the current image has no caption:
+ */
+
+add_filter( 'image_send_to_editor',
+    function( $html, $id, $caption, $title, $align, $url, $size, $alt )
+    {
+        if( current_theme_supports( 'html5' )  && ! $caption )
+            $html = sprintf( '<figure>%s</figure>', $html ); // Modify to your needs!
+
+        return $html;
+    }
+, 10, 8 );
+
+/**
+ * Add custom image sizes
+ */
+add_image_size( 'full-width', 1920 );
+
+// Register the new image sizes for use in Add Media modal
+add_filter( 'image_size_names_choose', 'dimension_custom_sizes' );
+function dimension_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'full-width' => __( 'Full Width' ),
+    ) );
+}
+
 if ( ! function_exists( 'dimension_fonts_url' ) ) :
 /**
  * Register Google fonts for Dimension.
@@ -113,19 +135,19 @@ function dimension_fonts_url() {
 	$fonts     = array();
 	$subsets   = 'latin,latin-ext';
 
-	/* translators: If there are characters in your language that are not supported by Merriweather, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'dimension' ) ) {
-		$fonts[] = 'Roboto:400,700,400italic,700italic';
+	/* translators: If there are characters in your language that are not supported by Open Sans, translate this to 'off'. Do not translate into your own language. */
+	if ( 'off' !== _x( 'on', 'Open Sans font: on or off', 'dimension' ) ) {
+		$fonts[] = 'Open+Sans:400,700,400italic,700italic';
 	}
 
 	/* translators: If there are characters in your language that are not supported by Montserrat, translate this to 'off'. Do not translate into your own language. */
 	if ( 'off' !== _x( 'on', 'Montserrat font: on or off', 'dimension' ) ) {
-		$fonts[] = 'Montserrat:400,700';
+		$fonts[] = 'Montserrat';
 	}
 
-	/* translators: If there are characters in your language that are not supported by Inconsolata, translate this to 'off'. Do not translate into your own language. */
+	/* translators: If there are characters in your language that are not supported by Source Code Pro, translate this to 'off'. Do not translate into your own language. */
 	if ( 'off' !== _x( 'on', 'Source Code Pro font: on or off', 'dimension' ) ) {
-		$fonts[] = 'Source Code Pro:400,700';
+		$fonts[] = 'Source Code Pro';
 	}
 
 	if ( $fonts ) {
@@ -150,9 +172,16 @@ function dimension_scripts() {
 
 	wp_enqueue_style( 'dimension-style', get_template_directory_uri() . '/public/css/main.css', array(), '20160929');
 
-	wp_enqueue_script( 'dimension-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	// Use a more current version of jQuery.
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js", false, null);
+	wp_enqueue_script('jquery');
+
+	// wp_enqueue_script( 'dimension-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'dimension-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'dimension-app', get_template_directory_uri() . '/public/js/app.js', array(), '20161003', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

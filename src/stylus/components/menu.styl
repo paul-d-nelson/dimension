@@ -1,4 +1,77 @@
-.main-navigation:not(.toggled)
+.menu
+  opacity: 0
+  position: absolute
+  top: 50%
+  right: 80px
+  transform: translateY(-50%)
+  transition: opacity 0.3s
+
+.main-navigation.is-active
   .menu
-    height: 0
-    overflow: hidden
+    opacity: 1
+
+.nav-menu
+  inline-list()
+
+line()
+  display: block
+  position: absolute
+  height: $size-menu-button-h
+  border-radius: ($size-menu-button-h / 3)
+  background: $color-main-fg
+
+.menu-toggle
+  display: block
+  position: fixed
+  margin: 0
+  padding: 0
+  top: 16px
+  right: 1rem
+  width: $size-menu-button
+  height: @width
+  background: transparent
+  border-radius: ($size-menu-button-h / 4)
+  border: none
+  cursor: pointer
+  &:focus
+    outline: none
+  .lines
+    line()
+    top: ($size-menu-button / 2) - ($size-menu-button-h / 2)
+    left: $size-menu-button-h
+    right: @left
+    &::before
+    &::after
+      line()
+      width: 100%
+      content: ""
+    &::before
+      top: -10px
+    &::after
+      bottom: -10px
+
+// Animation
+.menu-toggle
+  .lines
+    transition: background 0s $anim-button-duration
+    &::before
+    &::after
+      transition-duration: $anim-button-duration, $anim-button-duration
+      transition-delay: $anim-button-duration, 0s
+    &::before
+      transition-property: top, transform
+    &::after
+      transition-property: bottom, transform
+
+.menu-toggle.is-active
+  .lines
+    background: none
+    &::before
+    &::after
+      transition-delay: 0s, $anim-button-duration
+    &::before
+      top: 0
+      transform: rotate(45deg)
+    &::after
+      bottom: 0
+      transform: rotate(-45deg)

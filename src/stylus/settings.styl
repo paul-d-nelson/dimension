@@ -6,15 +6,18 @@
 // ---------------
 
 // Common fonts
+$sans-serif-f = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+
 $helvetica-neue = "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif
 $helvetica = "Helvetica Neue", Helvetica, Arial, sans-serif
 $georgia = Georgia, Cambria, "Times New Roman", Times, serif
 $lucida-grande = "Lucida Grande", Tahoma, Verdana, Arial, sans-serif
-$monospace = Consolas, "Liberation Mono", Menlo, Courier, monospace
+$monospace = 'Source Code Pro', Consolas, "Liberation Mono", Menlo, Courier, monospace
 $verdana = Verdana, Geneva, sans-serif
 $roboto = 'Roboto', sans-serif
 
-$sans-serif = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+$open-sans = 'Open Sans', $sans-serif-f
+$montserrat = 'Montserrat', $sans-serif-f
 
 // Naming Conventions:
 //
@@ -24,8 +27,8 @@ $sans-serif = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica 
 
 // Fallback fonts
 // Will be used if webfonts fail to load and as webfonts are loading
-$font-main = $sans-serif
-$font-header = $sans-serif
+$font-main = $open-sans
+$font-header = $montserrat
 
 // Theme fonts
 // Webfonts used once they have been loaded; add to main.js
@@ -84,14 +87,15 @@ $concrete = #F2F2F2
 
 // Element colors
 // $color-main-bg = #f5f4f3
+$color-primary = #3f67df
 $color-main-bg = #fbfaf9
 $color-main-fg = black
-$color-link-fg = #3f67df
+$color-link-fg = $color-primary
 $color-text-l = lighten(black, 25%)
 $color-light-bg = #efefef
 
 // $color-header-bg = lighten(gray, 60%)
-$color-header-bg = $color-light-bg
+$color-header-bg = $color-main-bg
 $color-footer-bg = $color-light-bg
 $color-code-bg = $color-light-bg
 
@@ -120,15 +124,15 @@ $size-footer-h = 150px
 $size-footer-w = 960px
 
 $size-menu-button = 40px
-$size-menu-button-h = 5px
+$size-menu-button-h = 3px
 
 // Typography
 // ---------------
 
 $font-size = 1.6rem
-$line-height = 1.5
+$line-height = 1.45
 
 // Animation
 // ---------------
 
-$anim-button-duration = 0.3s
+$anim-button-duration = 0.2s

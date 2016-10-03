@@ -18,7 +18,7 @@ function dimension_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
 		'render'    => 'dimension_infinite_scroll_render',
-		'footer'    => 'page',
+		'footer'    => false,
 	) );
 
 	// Add theme support for Responsive Videos.
