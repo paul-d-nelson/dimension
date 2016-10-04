@@ -50,10 +50,12 @@ function dimension_entry_footer() {
 	if ( 'post' === get_post_type() ) {
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list();
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'dimension' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
+		if ( !is_home() ):
+			$tags_list = get_the_tag_list();
+			if ( $tags_list ) {
+				printf( '<span class="tags-links">' . esc_html__( '%1$s', 'dimension' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			}
+		endif;
 
 	}
 

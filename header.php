@@ -41,13 +41,16 @@
 			<?php
 			endif; ?>
 		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="lines"></span></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
+		<!-- site nav -->
 	</header><!-- #masthead -->
 	</div>
+
+	<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="lines"></span></button>
+
+	<nav id="site-navigation" class="main-navigation" role="navigation">
+		<!-- menu toggle -->
+		<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+	</nav><!-- #site-navigation -->
 
 	<div class="to-top"><a href="#page">Back to top</a></div>
 

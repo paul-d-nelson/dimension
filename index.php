@@ -18,6 +18,17 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 		<?php
+
+		/**
+		 * Insert Featured Content
+		 */
+		if ( is_home() ):
+			if ( function_exists( 'dimension_has_featured_posts' ) && dimension_has_featured_posts( 1 ) ) {
+				get_template_part( 'template-parts/content', 'featured' );
+			}
+		endif;
+
+
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) : ?>

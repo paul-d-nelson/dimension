@@ -1,44 +1,59 @@
+// .site-header
+//   overflow: hidden
+//   position: fixed
+//   height: $size-header-h
+//   top: 0
+//   left: 0
+//   right: 0
+//   z-index: 100
+
+// .header-container
+//   position: fixed
+//   top: 0
+//   background: $color-header-bg
+//   height: 0
+//   width: 100%
+//   transition: height 0.3s
+//   z-index: 100
+//   &.is-active
+//     height: $size-header-h
+//     .site-title
+//       a
+//         link-simple: black
+
 .site-header
   overflow: hidden
   position: fixed
+  background: transparent
   height: $size-header-h
   top: 0
   left: 0
   right: 0
   z-index: 100
-
-.header-container
-  position: fixed
-  top: 0
-  background: $color-header-bg
-  height: 0
-  width: 100%
-  transition: height 0.3s
-  &.is-active
-    height: $size-header-h
+  mix-blend-mode: exclusion
 
 .site-title
+  center-vertically()
+  // position: absolute
   font-size: 2.4rem
   font-family: $font-header
   margin: 0
   a
-    link-simple: $color-main-fg
-
-.site-content
-  margin-top: $size-header-h
+    link-simple: white
 
 .site-branding
-  center-vertically()
-  position: absolute
-  transition: top .3s
+  position: relative
+  height: $size-header-h
+  top: 0
+  transition: top .3s ease-in-out
 
 .is-scrolled
   .site-branding
     top: -100%
 
-.header-container.is-active
+.site-header.is-active
   .site-branding
-    top: 50%
+    top: 0
 
 .to-top
   position: fixed

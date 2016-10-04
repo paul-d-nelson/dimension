@@ -1,0 +1,35 @@
+.featured-content
+  position: relative
+  text-align: center
+
+.featured-thumb
+  overflow: hidden
+  height: 75vh
+  background: black
+  img
+    opacity: 0.5
+
++below(1200px)
+  .featured-thumb
+    position: relative
+    img
+      center-horizontally()
+      height: 100%
+      width: auto
+
+.featured-header
+  center-horizontally()
+  position: absolute
+  bottom: 25%
+  width: 90%
+  h2
+    link-simple: $color-main-bg
+  h1
+    link-simple: $color-main-bg
+    font-size: 6rem
+    margin-top: .5em
+  p
+    link-simple: $color-main-bg
+    max-width: $size-main-w
+    margin: auto
+    font-size: 2rem

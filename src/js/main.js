@@ -30,7 +30,7 @@ $(document).ready(function() {
   // Toggle menu button active state
   // -------------------------------
   var menuToggle = $('.menu-toggle'),
-      siteHeader = $('.header-container'),
+      siteHeader = $('.site-header'),
       mainNav = $('.main-navigation');
 
 
@@ -42,18 +42,18 @@ $(document).ready(function() {
     mainNav.toggleClass('is-active');
   });
 
-  $('html').click(function() {
-    //Hide the menus if visible
-    if ( menuToggle.hasClass('is-active') ) {
-      menuToggle.toggleClass('is-active');
-      siteHeader.toggleClass('is-active');
-      mainNav.toggleClass('is-active');
-    }
-  });
+  // $('html').click(function() {
+  //   //Hide the menus if visible
+  //   if ( menuToggle.hasClass('is-active') ) {
+  //     menuToggle.toggleClass('is-active');
+  //     siteHeader.toggleClass('is-active');
+  //     mainNav.toggleClass('is-active');
+  //   }
+  // });
 
-  $('.site-header').click(function(e) {
-    e.stopPropagation();
-  });
+  // $('.site-header').click(function(e) {
+  //   e.stopPropagation();
+  // });
 
   // Header animation on scroll
   // --------------------------

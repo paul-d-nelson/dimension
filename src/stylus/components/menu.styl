@@ -1,28 +1,34 @@
-.menu
-  position: absolute
+.main-navigation
+  background: white
+  position: fixed
+  height: $size-header-h
+  width: 100%
   top: -100%
-  right: $size-menu-button * 2
-  transform: translateY(-50%)
-  transition: top .3s
-
-.main-navigation.is-active
-  .menu
-    top: 50%
+  z-index: 90
+  transition: top .3s ease-in-out
 
 .menu
+  position: relative
+  top: 50%
+  transform: translateY(-50%)
+  right: $size-menu-button * 2
+  float: right
   ul
     inline-list()
+
+.main-navigation.is-active
+  top: 0
 
 line()
   display: block
   position: absolute
   height: $size-menu-button-h
   border-radius: ($size-menu-button-h / 3)
-  background: $color-main-fg
+  background: white
 
 .menu-toggle
   display: block
-  position: absolute
+  position: fixed
   margin: 0
   padding: 0
   top: 0
@@ -33,6 +39,8 @@ line()
   border-radius: ($size-menu-button-h / 4)
   border: none
   cursor: pointer
+  mix-blend-mode: exclusion
+  z-index: 100
   &:focus
     outline: none
   .lines

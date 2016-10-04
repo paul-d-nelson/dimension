@@ -98,7 +98,6 @@ function dimension_the_custom_logo() {
  * Wrap the inserted image html with <figure>
  * if the theme supports html5 and the current image has no caption:
  */
-
 add_filter( 'image_send_to_editor',
     function( $html, $id, $caption, $title, $align, $url, $size, $alt )
     {
@@ -117,10 +116,48 @@ add_image_size( 'full-width', 1920 );
 // Register the new image sizes for use in Add Media modal
 add_filter( 'image_size_names_choose', 'dimension_custom_sizes' );
 function dimension_custom_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'full-width' => __( 'Full Width' ),
-    ) );
+	return array_merge( $sizes, array(
+		'full-width' => __( 'Full Width' ),
+	) );
 }
+
+function dimension_allowedtags() {
+	// Add custom tags to this string
+	return '<br>,<em>,<i>,<ul>,<ol>,<li>,<a>,<p>,<img>,<video>,<audio>';
+}
+
+if ( ! function_exists( 'dimension_custom_wp_trim_excerpt' ) ) :
+/**
+ * Custom excerpt that trims after the first paragraph of a post.
+ */
+	function dimension_custom_wp_trim_excerpt($dimension_excerpt) {
+		global $post;
+		$raw_excerpt = $dimension_excerpt;
+		if ( '' == $dimension_excerpt ) {
+
+			$dimension_excerpt = get_the_content('');
+			$dimension_excerpt = strip_shortcodes( $dimension_excerpt );
+			$dimension_excerpt = apply_filters('the_content', $dimension_excerpt);
+			$dimension_excerpt = substr( $dimension_excerpt, 0, strpos( $dimension_excerpt, '</p>' ) + 4 );
+			$dimension_excerpt = str_replace(']]>', ']]&gt;', $dimension_excerpt);
+			$dimension_excerpt = strip_tags($dimension_excerpt, dimension_allowedtags());
+
+			// Read more link
+			$excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '" class="read-more">' . sprintf(__( 'Read more', 'dimension' )) . '</a>';
+			$excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end);
+
+			$dimension_excerpt .= $excerpt_end;
+
+			return $dimension_excerpt;
+
+		}
+		return apply_filters('dimension_custom_wp_trim_excerpt', $dimension_excerpt, $raw_excerpt);
+	}
+
+endif;
+
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'dimension_custom_wp_trim_excerpt');
 
 if ( ! function_exists( 'dimension_fonts_url' ) ) :
 /**

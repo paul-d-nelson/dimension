@@ -53,7 +53,7 @@
 		else:
 			the_excerpt();
 
-			echo '<p><a href="' . get_permalink() . '"> Read More...</a></p>';
+			// echo '<p><a href="' . get_permalink() . '"> Read More...</a></p>';
 		endif;
 
 			wp_link_pages( array(
