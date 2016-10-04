@@ -1,61 +1,45 @@
-// .site-header
-//   overflow: hidden
-//   position: fixed
-//   height: $size-header-h
-//   top: 0
-//   left: 0
-//   right: 0
-//   z-index: 100
-
-// .header-container
-//   position: fixed
-//   top: 0
-//   background: $color-header-bg
-//   height: 0
-//   width: 100%
-//   transition: height 0.3s
-//   z-index: 100
-//   &.is-active
-//     height: $size-header-h
-//     .site-title
-//       a
-//         link-simple: black
+.site-title
+  margin: 0
+  a
+    link-simple: $color-main-bg
 
 .site-header
-  overflow: hidden
   position: fixed
-  background: transparent
-  height: $size-header-h
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 10px
   top: 0
   left: 0
   right: 0
-  z-index: 100
-  mix-blend-mode: exclusion
-
-.site-title
-  center-vertically()
-  // position: absolute
-  font-size: 2.4rem
-  font-family: $font-header
-  margin: 0
-  a
-    link-simple: white
-
-.site-branding
-  position: relative
   height: $size-header-h
-  top: 0
-  transition: top .3s ease-in-out
+  background: rgba(0, 0, 0, 0.5)
+  // transition: background .3s
+  z-index: 100
 
-.is-scrolled
-  .site-branding
-    top: -100%
-
-.site-header.is-active
-  .site-branding
-    top: 0
+// .is-scrolled
+//   .site-title
+//     a
+//       link-simple: $color-main-fg
+//   .site-header
+//     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0))
 
 .to-top
   position: fixed
-  bottom: 3px
-  right: @bottom
+  right: 10px
+  bottom: -40px
+  transition: bottom .3s
+  z-index: 200
+  mix-blend-mode: exclusion
+  .arrow-up
+    icon-arrow(up, 20px, white, 2px)
+    position: absolute
+    bottom: 0
+    right: 0
+  a
+    display: block
+    width: 40px
+    height: @width
+.is-scrolled
+  .to-top
+    bottom: 10px

@@ -1,23 +1,14 @@
 .main-navigation
-  background: white
-  position: fixed
-  height: $size-header-h
-  width: 100%
-  top: -100%
-  z-index: 90
-  transition: top .3s ease-in-out
-
-.menu
-  position: relative
-  top: 50%
-  transform: translateY(-50%)
-  right: $size-menu-button * 2
-  float: right
+  margin: 0
   ul
     inline-list()
+  a
+    link-simple: $color-main-bg
 
-.main-navigation.is-active
-  top: 0
+// .is-scrolled
+//   .main-navigation
+//     a
+//       link-simple: $color-main-fg
 
 line()
   display: block
@@ -27,7 +18,7 @@ line()
   background: white
 
 .menu-toggle
-  display: block
+  display: none // block
   position: fixed
   margin: 0
   padding: 0

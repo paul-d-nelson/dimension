@@ -23,35 +23,16 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dimension' ); ?></a>
 
-	<div class="header-container">
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			dimension_the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+	<header class="site-header">
+		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-		<!-- site nav -->
-	</header><!-- #masthead -->
-	</div>
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="lines"></span></button>
 
-	<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="lines"></span></button>
+		<nav class="main-navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+		</nav><!-- #site-navigation -->
+	</header>
 
-	<nav id="site-navigation" class="main-navigation" role="navigation">
-		<!-- menu toggle -->
-		<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-	</nav><!-- #site-navigation -->
-
-	<div class="to-top"><a href="#page">Back to top</a></div>
+	<div class="to-top"><a href="#page"><span class="arrow-up"></span></a></div>
 
 	<div id="content" class="site-content">
