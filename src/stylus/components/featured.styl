@@ -8,6 +8,13 @@
   background: black
   img
     opacity: 0.5
+    transition: opacity 0.3s
+
+// Hover animation
+.featured-content:hover
+  .featured-thumb
+    img
+      opacity: 0.7
 
 +below(1200px)
   .featured-thumb
@@ -23,11 +30,17 @@
   bottom: 25%
   width: 90%
   h2
-    link-simple: $color-main-bg
+    // link-simple: $color-main-bg
+    color: $color-main-bg
+    display: inline-block
+    font-size: 1.4rem
+    padding: 6px 8px
+    border: 2px solid $color-main-bg
+
   h1
     link-simple: $color-main-bg
     font-size: 6rem
-    margin-top: .5em
+    margin-top: .2em
   p
     link-simple: $color-main-bg
     max-width: $size-main-w

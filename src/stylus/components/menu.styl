@@ -5,36 +5,42 @@
   align-items: center
   top: -($size-header-h)
   left: 20px
-  right: 60px
+  right: 20px + $size-menu-button
   height: $size-header-h
   margin: 0
-  background: white
+  background: $color-main-bg
   transition: top 0.3s ease-in-out
   z-index: 90
   .menu
     margin-right: 10px
+    line-height: $size-header-h
   ul
     inline-list()
+    li
+      margin-right: 10px
+      background: transparent
+      transition: background 0.15s
+    li:hover
+      background: $color-main-fg
   a
-    link-simple: $color-main-fg
+    link-simple-hover: $color-main-fg $color-main-bg
+    display: block
+    padding: 0 10px
+    font-family: $font-header
+    text-transform: uppercase
+    transition: color .15s
 
 .main-navigation.is-active
   top: 0
-
-// .is-scrolled
-//   .main-navigation
-//     a
-//       link-simple: $color-main-fg
 
 line()
   display: block
   position: absolute
   height: $size-menu-button-h
   border-radius: ($size-menu-button-h / 3)
-  background: white
+  background: $color-main-bg
 
 .menu-toggle
-  // display: none // block
   position: fixed
   margin: 0
   padding: 0
@@ -42,7 +48,7 @@ line()
   right: ($size-menu-button / 2)
   width: $size-menu-button
   height: @width
-  background: black
+  background: $color-main-fg
   border-radius: ($size-menu-button-h / 4)
   border: none
   cursor: pointer

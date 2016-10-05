@@ -17,7 +17,7 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'dimension' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'dimension' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'dimension' ), 'dimension', '<a href="http://paulnelsondev.com" rel="designer">Paul Nelson</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'dimension' ), 'Dimension', '<a href="http://paulnelsondev.com" rel="designer">Paul Nelson</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

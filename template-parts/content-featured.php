@@ -19,7 +19,7 @@
 				<?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
 			</figure>
 			<header class="featured-header">
-				<!-- <h2>Featured</h2> -->
+				<h2>Featured</h2>
 				<h1><?php the_title(); ?></h1>
 				<p><?php the_excerpt(); ?></p>
 			</header>
