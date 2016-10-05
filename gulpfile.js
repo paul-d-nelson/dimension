@@ -121,7 +121,14 @@ gulp.task('watch', () => {
 // Run BrowserSync through local server
 gulp.task('serve', () => {
   browserSync.init({
-    proxy: config.devurl
+    proxy: config.devurl,
+    notify: {
+      styles: {
+        top: 'auto',
+        bottom: '0',
+        borderRadius: '0'
+      }
+    }
   });
   gulp.watch(config.css.all, gulp.series('styles'));
   gulp.watch(config.js.src, gulp.series('jshint', 'js:concat')).on('change', reload);

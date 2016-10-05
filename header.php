@@ -23,15 +23,17 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dimension' ); ?></a>
 
-	<header class="site-header">
+<!-- 	<header class="site-header"> -->
 		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="lines"></span></button>
+		<button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="lines"></span></button>
+		<!-- <input type="checkbox" id="menu-toggle" class="menu-toggle">
+		<label for="menu-toggle" class="menu-button"><span class="lines"></span></label> -->
 
 		<nav class="main-navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
-	</header>
+<!-- 	</header> -->
 
 	<div class="to-top"><a href="#page"><span class="arrow-up"></span></a></div>
 

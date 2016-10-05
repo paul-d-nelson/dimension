@@ -17,11 +17,11 @@ $(document).ready(function() {
     }
   }, 250);
 
-  var headerHeight = $('.site-header').outerHeight();
+  // var headerHeight = $('.site-header').outerHeight();
   var page = $('#page');
 
   function hasScrolled() {
-    if ($(window).scrollTop() >= headerHeight)
+    if ($(window).scrollTop() >= 100)
       page.addClass('is-scrolled');
     else
       page.removeClass('is-scrolled');
@@ -30,7 +30,7 @@ $(document).ready(function() {
   // Toggle menu button active state
   // -------------------------------
   var menuToggle = $('.menu-toggle'),
-      siteHeader = $('.site-header'),
+      siteHeader = $('.site-title'),
       mainNav = $('.main-navigation');
 
 
@@ -54,6 +54,21 @@ $(document).ready(function() {
   // $('.site-header').click(function(e) {
   //   e.stopPropagation();
   // });
+
+  /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+  // menuToggle.click(function(e) {
+  //   $(this).toggleClass('is-active');
+  // });
+
+  // Close the dropdown menu if the user clicks outside of it
+  // window.onclick = function(event) {
+  //   if (!event.target.matches('.menu-toggle')) {
+  //     menuToggle.toggleClass('is-active');
+  //     siteHeader.toggleClass('is-active');
+  //     mainNav.toggleClass('is-active');
+  //   }
+  // }
 
   // Header animation on scroll
   // --------------------------

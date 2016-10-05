@@ -1,9 +1,25 @@
 .main-navigation
+  position: fixed
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  top: -($size-header-h)
+  left: 20px
+  right: 60px
+  height: $size-header-h
   margin: 0
+  background: white
+  transition: top 0.3s ease-in-out
+  z-index: 90
+  .menu
+    margin-right: 10px
   ul
     inline-list()
   a
-    link-simple: $color-main-bg
+    link-simple: $color-main-fg
+
+.main-navigation.is-active
+  top: 0
 
 // .is-scrolled
 //   .main-navigation
@@ -18,7 +34,7 @@ line()
   background: white
 
 .menu-toggle
-  display: none // block
+  // display: none // block
   position: fixed
   margin: 0
   padding: 0
@@ -26,18 +42,17 @@ line()
   right: ($size-menu-button / 2)
   width: $size-menu-button
   height: @width
-  background: transparent
+  background: black
   border-radius: ($size-menu-button-h / 4)
   border: none
   cursor: pointer
-  mix-blend-mode: exclusion
   z-index: 100
   &:focus
     outline: none
   .lines
     line()
     top: ($size-menu-button / 2) - ($size-menu-button-h / 2)
-    left: $size-menu-button-h
+    left: $size-menu-button-h * 2
     right: @left
     &::before
     &::after

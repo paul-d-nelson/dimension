@@ -93,3 +93,49 @@ link-simple($color)
   &:visited
   &:active
     color: $color
+
+link-style-base($color)
+  position: relative
+  display: inline-block
+  margin: 15px 25px
+  outline: none
+  color: $color
+  text-decoration: none
+  text-transform: uppercase
+  letter-spacing: 1px
+  font-weight: 400
+  text-shadow: 0 0 1px rgba(255,255,255,0.3)
+  // font-size: 1.35em
+
+  &:hover
+  &:focus
+    outline: none
+
+link-style-8($color, $border)
+  link-style-base($color)
+  padding: 10px 20px
+  &::before
+  &::after
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border: 3px solid $color
+    content: ''
+    transition: transform 0.3s, opacity 0.3s
+
+  &::after
+    border-color: $border
+    opacity: 0
+    transform: translateY(-7px) translateX(6px)
+
+  &:hover::before
+  &:focus::before
+    opacity: 0
+    transform: translateY(5px) translateX(-5px)
+
+  &:hover::after
+  &:focus::after
+    opacity: 1
+    transform: translateY(0px) translateX(0px)

@@ -52,6 +52,8 @@
 
 		else:
 			the_excerpt();
+
+			echo "<p class='read-more'><a href='" . get_the_permalink() . "'>Read More</a></p>";
 		endif;
 
 			wp_link_pages( array(

@@ -1,7 +1,18 @@
 .site-title
+  position: fixed
+  top: 0
+  left: 20px
   margin: 0
+  padding: 0 5px
+  line-height: $size-header-h
+  transition: top 0.3s ease-in-out
+  z-index: 100
+  &.is-active
+    a
+      link-simple: $color-main-fg
   a
     link-simple: $color-main-bg
+    transition: color 0.3s
 
 .site-header
   position: fixed
@@ -14,15 +25,14 @@
   right: 0
   height: $size-header-h
   background: rgba(0, 0, 0, 0.5)
-  // transition: background .3s
   z-index: 100
 
-// .is-scrolled
-//   .site-title
-//     a
-//       link-simple: $color-main-fg
-//   .site-header
-//     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0))
+.is-scrolled
+  .site-title
+    &:not(.is-active)
+      top: -($size-header-h)
+    a
+      link-simple: $color-main-fg
 
 .to-top
   position: fixed

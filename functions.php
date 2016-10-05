@@ -143,10 +143,10 @@ if ( ! function_exists( 'dimension_custom_wp_trim_excerpt' ) ) :
 			$dimension_excerpt = strip_tags($dimension_excerpt, dimension_allowedtags());
 
 			// Read more link
-			$excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '" class="read-more">' . sprintf(__( 'Read more', 'dimension' )) . '</a>';
-			$excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end);
+			// $excerpt_end = ' <a href="'. esc_url( get_permalink() ) . '" class="read-more">' . sprintf(__( 'Read more', 'dimension' )) . '</a>';
+			// $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end);
 
-			$dimension_excerpt .= $excerpt_end;
+			// $dimension_excerpt .= $excerpt_end;
 
 			return $dimension_excerpt;
 
