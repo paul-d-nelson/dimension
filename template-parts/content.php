@@ -36,7 +36,11 @@
 			<div class="entry-meta">
 				<?php dimension_posted_on(); ?>
 			</div><!-- .entry-meta -->
-			<?php
+			<?php if (is_single()):
+					echo "<span class='comments-popup-link'>";
+					comments_popup_link();
+					echo "</span>";
+				endif;
 			endif; ?>
 		</header><!-- .entry-header -->
 	</div><!-- .post-header -->

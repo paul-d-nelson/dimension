@@ -68,14 +68,13 @@ link-fancy-reverse($border = $blue, $color = $blue, $lighten = false)
   reset-link()
   color: $color
   background-image: none
-
+  transition: none
   &:hover
     if $lighten
       color: lighten($color, 100%)
     else
       color: $color
     underline-fancy: $border
-
   &:visited
     opacity: .8
 
@@ -116,6 +115,13 @@ link-button($color, $color-hover)
     border: 2px solid $color
     background: $color
     color: $color-hover
+
+link-button-reverse($color-hover, $color)
+  link-button: $color $color-hover
+  background: $color-hover
+  border: 2px solid $color-hover
+  &:hover
+    border: 2px solid $color-hover
 
 link-style-base($color)
   position: relative

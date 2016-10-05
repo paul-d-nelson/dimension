@@ -53,13 +53,15 @@ code
   font-family: $font-mono
 
 a
-  text-decoration: none
-  &:link
-  &:visited
-    color: $color-link-fg
-  &:hover
-  &:active
-    color: darken($color-link-fg, 30%)
+  // link-fancy-reverse: $color-link-fg $color-link-fg
+  // text-decoration: none
+  // &:link
+  // &:visited
+  //   color: $color-link-fg
+  // &:hover
+  // &:active
+  //   color: darken($color-link-fg, 30%)
+  link: $color-link-fg 'darken'
 
 .entry-header
   a
@@ -81,7 +83,7 @@ hr
   ol
   pre
   / .entry-header
-    max-width: $font-size * 33
+    max-width: $size-text-w
     margin-left: auto
     margin-right: auto
     +below(600px)
@@ -89,5 +91,5 @@ hr
       margin-right: 10px
 
   blockquote
-    max-width: $font-size * 28
+    max-width: $size-bq-w
     margin: auto

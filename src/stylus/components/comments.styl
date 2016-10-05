@@ -1,0 +1,27 @@
+.comments-area
+  max-width: $size-main-w
+  margin: auto
+
+.comment-list
+  reset-list()
+  li
+    padding: 5px 5px 10px
+    margin: 5px
+    // background: $color-light-bg
+    border-top: 2px solid $color-main-fg
+    &:first-child
+      border: 0
+
+.comment-meta
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  font-size: 1.4rem
+  .comment-author
+    img
+      float: left
+      margin-right: 10px
+
+a.comment-reply-link
+  link-button: $color-main-fg $color-main-bg
+  font-size: 1.4rem

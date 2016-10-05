@@ -39,9 +39,58 @@
       link-fancy-reverse: #fff #fff
 
 .tags-links
+  display: block
+  font-size: 1.2rem
+  max-width: $size-main-w
+  margin: auto
   a
-    padding: 0 3px
-  a:before
-    content: "#"
-    font-size: 1.8rem
-    color: $color-main-fg
+    link-button-reverse: $color-main-fg $color-main-bg
+    display: inline-block
+    margin: 5px
+
+.post-navigation
+  group()
+  padding: 30px 0
+  overflow: hidden
+
+.nav-previous
+.nav-next
+  position: relative
+  transition: margin 0.3s
+  a
+    link-button: $color-main-fg $color-main-bg
+    padding: 20px 10px
+
+.nav-previous
+  float: left
+  margin-left: -30px
+  &:hover
+    margin-left: 0
+  a
+    border-left: 0
+    padding-left: 40px
+    &:hover
+      border-left: 0
+    &:after
+      center-vertically()
+      left: 15px
+      font-family: FontAwesome
+      font-size: 3rem
+      content: '\f104'
+
+.nav-next
+  float: right
+  margin-right: -30px
+  &:hover
+    margin-right: 0
+  a
+    border-right: 0
+    padding-right: 40px
+    &:hover
+      border-right: 0
+    &:after
+      center-vertically()
+      right: 15px
+      font-family: FontAwesome
+      font-size: 3rem
+      content: '\f105'
