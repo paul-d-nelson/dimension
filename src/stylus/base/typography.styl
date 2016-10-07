@@ -61,7 +61,12 @@ a
   // &:hover
   // &:active
   //   color: darken($color-link-fg, 30%)
-  link: $color-link-fg 'darken'
+  // link: $color-link-fg 'darken'
+  link-fancy: lighten($color-link-fg, 30%) $color-link-fg
+
+figure
+  a
+    reset-link-fancy()
 
 .entry-header
   a

@@ -53,14 +53,12 @@ link-fancy($border = $blue, $color = $blue, $lighten = false)
   reset-link()
   color: $color
   underline-fancy: $border
-
   &:hover
     if $lighten
       color: lighten($color, 100%)
     else
       color: $color
     background-image: none
-
   &:visited
     opacity: .8
 
@@ -78,6 +76,15 @@ link-fancy-reverse($border = $blue, $color = $blue, $lighten = false)
   &:visited
     opacity: .8
 
+reset-link-fancy()
+  reset-link()
+  background-image: none
+  &:link
+  &:hover
+  &:visited
+  &:active
+    background-image: none
+
 // Mixin: Link Simple
 //
 // A basic link that is just one color in all states, no underlines or anything.
@@ -85,7 +92,7 @@ link-fancy-reverse($border = $blue, $color = $blue, $lighten = false)
 // ex: link-simple: #000
 
 link-simple($color)
-  reset-link()
+  reset-link-fancy()
   color: $color
   &:link
   &:hover
@@ -94,14 +101,17 @@ link-simple($color)
     color: $color
 
 link-simple-hover($color, $hover)
-  reset-link()
+  reset-link-fancy()
+  background-image: none
   color: $color
   &:link
   &:visited
     color: $color
+    background-image: none
   &:hover
   &:active
     color: $hover
+    background-image: none
 
 link-button($color, $color-hover)
   link-simple: $color
@@ -186,3 +196,8 @@ link-style-8($color, $border)
   &:focus::after
     opacity: 1
     transform: translateY(0px) translateX(0px)
+
+input-outline($color)
+  border: 1px solid rgba($color, 0.8)
+  box-shadow: 0 1px 1px rgba($color, 0.075) inset, 0 0 8px rgba($color, 0.6)
+  outline: 0 none

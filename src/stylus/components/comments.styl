@@ -4,13 +4,22 @@
 
 .comment-list
   reset-list()
+  ol
+    padding-top: 20px
+  .children
+    padding-left: 20px
+    li:first-child
+      // border-top: 2px solid $color-main-fg
   li
     padding: 5px 5px 10px
-    margin: 5px
+    margin: 10px 5px
     // background: $color-light-bg
-    border-top: 2px solid $color-main-fg
+    // border-top: 2px solid $color-main-fg
     &:first-child
       border: 0
+
+.bypostauthor
+  background: darken($color-main-bg, 10%)
 
 .comment-meta
   display: flex
@@ -25,3 +34,34 @@
 a.comment-reply-link
   link-button: $color-main-fg $color-main-bg
   font-size: 1.4rem
+
+// Comment form
+.comment-respond
+  p
+    field: left 100%
+  +html5-inputs()
+    display: block
+    width: 100%
+    border: 1px solid gray
+    &:focus
+      input-outline: blue
+  input.submit
+    link-button: $color-main-fg $color-main-bg
+    background-color: $color-main-bg
+    // border: 2px solid $color-main-fg
+  .comment-notes
+    margin-top: 0
+  .comment-form-author
+  .comment-form-email
+    margin-bottom: 1.45em
+    width: 50%
+    float: left
+    clear: none
+  .comment-form-author
+    width: calc(50% - 5px)
+    margin-right: 5px
+  .required
+    color: red
+
+#cancel-comment-reply-link
+  link-fancy: red red

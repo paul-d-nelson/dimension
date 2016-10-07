@@ -79,7 +79,39 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form();
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+
+	$fields =  array(
+
+		'author' =>
+			'<p class="comment-form-author"><label for="author">' . __( 'Name', 'dimension' ) . '</label> ' .
+			( $req ? '<span class="required">*</span>' : '' ) .
+			'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+			'" size="30"' . $aria_req . ' /></p>',
+
+		'email' =>
+			'<p class="comment-form-email"><label for="email">' . __( 'Email', 'dimension' ) . '</label> ' .
+			( $req ? '<span class="required">*</span>' : '' ) .
+			'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+			'" size="30"' . $aria_req . ' /></p>',
+	);
+
+	$comment_args = array(
+
+		'title_reply'       => __( 'Join the conversation' ),
+
+		'comment_notes_before' => '<p class="comment-notes">' .
+			__( 'Your email address will not be published.' ) .
+			'</p>',
+
+		'comment_notes_after' => '',
+
+		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+	);
+
+	comment_form($comment_args);
 	?>
 
 </div><!-- #comments -->
