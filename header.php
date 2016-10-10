@@ -20,7 +20,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php do_action(‘ase_theme_body_inside_top’); ?>
+<?php do_action('ase_theme_body_inside_top'); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'dimension' ); ?></a>
 
@@ -33,7 +33,9 @@
 
 		<nav class="main-navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+			<?php get_search_form(); ?>
 		</nav><!-- #site-navigation -->
+
 <!-- 	</header> -->
 
 	<div class="to-top"><a href="#page"><span class="arrow-up"></span></a></div>

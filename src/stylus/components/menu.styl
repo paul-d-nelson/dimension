@@ -1,23 +1,29 @@
 .main-navigation
   position: fixed
-  display: flex
-  justify-content: flex-end
-  align-items: center
-  top: -($size-header-h)
-  left: 20px
-  right: 20px + $size-menu-button
-  height: $size-header-h
+  top: 0
+  right: -100%
   margin: 0
+  padding-top: 40px
+  width: 100%
   background: $color-main-bg
-  transition: top 0.3s ease-in-out
   z-index: 90
   .menu
-    margin-right: 10px
     line-height: $size-header-h
+  form // search form
+    margin: 10px 30px
+    input[type="search"]
+      width: 100%
+      border: none
+      border-bottom: 2px solid transparent
+      background: $color-main-bg
+      font-family: $font-header
+      &:focus
+        outline: none
+        border-bottom: 2px solid black
   ul
-    inline-list()
+    reset-list()
     li
-      margin-right: 10px
+      margin: 0
       background: transparent
       transition: background 0.15s
     li:hover
@@ -25,13 +31,40 @@
   a
     link-simple-hover: $color-main-fg $color-main-bg
     display: block
-    padding: 0 10px
+    padding: 0 30px
     font-family: $font-header
+    font-size: 2rem
     text-transform: uppercase
     transition: color .15s
 
-.main-navigation.is-active
-  top: 0
++below(1000px)
+  .main-navigation.is-active
+    right: 0
+
++above(1000px)
+  .main-navigation
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    top: -($size-header-h)
+    right: 20px + $size-menu-button
+    height: $size-header-h
+    padding: 0
+    transition: top 0.3s ease-in-out
+    .menu
+      margin-right: 10px
+    form
+      margin: 0
+      margin-right: 10px
+    ul
+      inline-list()
+      li
+        margin-right: 10px
+    a
+      padding: 0 10px
+      font-size: 1.6rem
+    &.is-active
+      top: 0
 
 line()
   display: block

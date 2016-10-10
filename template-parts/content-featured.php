@@ -15,13 +15,16 @@
 	?>
 
 		<a href="<?php the_permalink(); ?>" rel="bookmark">
-			<figure class="featured-thumb">
+		<?php if ( has_post_thumbnail() ) : ?>
+			<!-- <figure class="featured-thumb">
 				<?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
-			</figure>
+			</figure> -->
+			<div class="featured-thumb" style="background: url('<?php the_post_thumbnail_url(); ?>') no-repeat center center;background-size: cover;"></div>
+		<?php endif; ?>
 			<header class="featured-header">
 				<h2>Featured</h2>
 				<h1><?php the_title(); ?></h1>
-				<p><?php the_excerpt(); ?></p>
+				<?php the_excerpt(); ?>
 			</header>
 		</a>
 

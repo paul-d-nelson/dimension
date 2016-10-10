@@ -32,7 +32,7 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			// the_posts_navigation();
 
 		else :
 
@@ -44,5 +44,5 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

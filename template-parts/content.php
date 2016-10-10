@@ -13,9 +13,10 @@
 
 	<div class="post-header">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<figure class="post-thumbnail">
+			<!-- <figure class="post-thumbnail">
 			<?php the_post_thumbnail(); ?>
-			</figure>
+			</figure> -->
+			<div class="post-thumb" style="background: url('<?php the_post_thumbnail_url(); ?>') no-repeat center center;background-size: cover;"></div>
 		<?php endif; ?>
 
 		<header class="entry-header">
@@ -67,7 +68,9 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php dimension_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<?php if (is_single()) : ?>
+		<footer class="entry-footer">
+			<?php dimension_entry_footer(); ?>
+		</footer><!-- .entry-footer -->
+	<?php endif; ?>
 </article><!-- #post-## -->
