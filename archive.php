@@ -7,6 +7,13 @@
  * @package Dimension
  */
 
+// Get the category image src if it exists
+if (function_exists('category_image_src')) {
+	$category_image = category_image_src( array( 'size' => 'full' ) , false );
+} else {
+	$category_image = '';
+}
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -14,6 +21,20 @@ get_header(); ?>
 
 		<?php
 		if ( have_posts() ) : ?>
+
+		<?php if ($category_image) : ?>
+
+			<!-- category featured image -->
+			<!-- <img src="<?php echo $category_image; ?>" alt="<?php single_cat_title();?>" desc="<?php echo wp_strip_all_tags( category_description() );?>"/> -->
+			<div class="category-image" style="background: url('<?php echo $category_image; ?>') no-repeat center center;background-size: cover;"></div>
+
+		<?php else : ?>
+
+			<?php $background_image = get_template_directory_uri() . '/public/img/black_mamba.png'; ?>
+
+			<div class="category-image" style="background: url('<?php echo $background_image; ?>') repeat;"></div>
+
+		<?php endif; ?>
 
 			<header class="page-header">
 				<?php
