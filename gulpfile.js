@@ -107,8 +107,14 @@ gulp.task('js:concat', () => {
 
 // Build everything
 gulp.task('build', production ?
-                   gulp.series('clean', gulp.parallel('styles', 'js:concat', 'images', 'fonts')) :
-                   gulp.series('clean', gulp.parallel('styles', gulp.series('jshint', 'js:concat'), 'images', 'fonts')));
+                   gulp.series('clean', gulp.parallel('styles',
+                                                      'js:concat',
+                                                      'images',
+                                                      'fonts')) :
+                   gulp.series('clean', gulp.parallel('styles',
+                                                      gulp.series('jshint', 'js:concat'),
+                                                      'images',
+                                                      'fonts')));
 
 // Watch the src directories for changes and rebuild
 gulp.task('watch', () => {
