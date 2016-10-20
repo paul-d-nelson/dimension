@@ -1,44 +1,86 @@
-.featured-content
+.featured
   position: relative
   text-align: center
   background: black
-
-.featured-thumb
-  // overflow: hidden
   height: 75vh
   width: 100%
-  opacity: 0.6
-  transition: opacity 0.3s
-
-// Hover animation
-.featured-content:hover
-  .featured-thumb
-    opacity: 0.8
-
-.featured-header
-  center-both()
-  position: absolute
-  width: 90%
-  h2
-    // link-simple: $color-main-bg
-    color: $color-main-bg
-    display: inline-block
-    font-size: 1.4rem
-    padding: 6px 8px
-    border: 2px solid $color-main-bg
-  h1
-    link-simple: $color-main-bg
-    font-size: 6rem
-    margin-top: .2em
-  p
-    link-simple: $color-main-bg
-    max-width: $size-main-w
+  a
+    reset-link-fancy()
+    fill-space()
+    z-index: 10
+    &:hover + .featured-thumb
+      opacity: 0.9
+  &-thumb
+    fill-space()
+    opacity: 0.7
+    transition: opacity 0.3s
+  &-header
+    fill-space()
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    align-content: center
+    max-width: 960px
     margin: auto
-    font-size: 2rem
-
-+mobile()
-  .featured-header
-    h2
-      font-size: 1.2rem
+    opacity: 1
+    padding: 2em
+    color: $color-main-bg
     h1
-      font-size: 4rem
+      font-size: 6rem
+      margin-top: .2em
+    h2
+      color: $color-main-bg
+      display: inline-block
+      font-size: 1.4rem
+      padding: 6px 8px
+      border: 2px solid $color-main-bg
+    p
+      font-size: 2rem
+
+// OLD -----------------------------------------------------
+
+// .featured-content
+//   position: relative
+//   text-align: center
+//   background: black
+
+// .featured-thumb
+//   // overflow: hidden
+//   height: 75vh
+//   width: 100%
+//   opacity: 0.6
+//   transition: opacity 0.3s
+
+// // Hover animation
+// .featured-content:hover
+//   .featured-thumb
+//     opacity: 0.8
+
+// .featured-header
+//   center-both()
+//   position: absolute
+//   width: 90%
+//   h2
+//     // link-simple: $color-main-bg
+//     color: $color-main-bg
+//     display: inline-block
+//     font-size: 1.4rem
+//     padding: 6px 8px
+//     border: 2px solid $color-main-bg
+//   h1
+//     link-simple: $color-main-bg
+//     font-size: 6rem
+//     margin-top: .2em
+//   p
+//     link-simple: $color-main-bg
+//     max-width: $size-main-w
+//     margin: auto
+//     font-size: 2rem
+
+// +mobile()
+//   .featured-header
+//     h2
+//       font-size: 1.2rem
+//     h1
+//       font-size: 4rem
