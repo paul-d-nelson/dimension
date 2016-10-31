@@ -22,20 +22,6 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) : ?>
 
-		<?php if ($category_image) : ?>
-
-			<!-- category featured image -->
-			<!-- <img src="<?php echo $category_image; ?>" alt="<?php single_cat_title();?>" desc="<?php echo wp_strip_all_tags( category_description() );?>"/> -->
-			<div class="category-image" style="background: url('<?php echo $category_image; ?>') no-repeat center center;background-size: cover;"></div>
-
-		<?php else : ?>
-
-			<?php $background_image = get_template_directory_uri() . '/public/img/black_mamba.png'; ?>
-
-			<div class="category-image" style="background: url('<?php echo $background_image; ?>') repeat;"></div>
-
-		<?php endif; ?>
-
 			<header class="page-header">
 				<?php
 					the_archive_title( '<h1 class="page-title">', '</h1>' );

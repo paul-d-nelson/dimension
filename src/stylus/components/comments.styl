@@ -1,6 +1,10 @@
 .comments-area
   max-width: $size-main-w
   margin: auto
+  margin-top: 4em
+  +below(600px)
+    margin-left: 10px
+    margin-right: 10px
 
 .comment-list
   reset-list()
@@ -8,18 +12,15 @@
     padding-top: 20px
   .children
     padding-left: 20px
-    li:first-child
-      // border-top: 2px solid $color-main-fg
   li
     padding: 5px 5px 10px
     margin: 10px 5px
-    // background: $color-light-bg
-    // border-top: 2px solid $color-main-fg
-    &:first-child
-      border: 0
+    border-top: 2px solid $color-main-fg
+    // &:first-child
+    //   border: 0
 
 .bypostauthor
-  background: darken($color-main-bg, 10%)
+  background: lighten(black, 90%)
 
 .comment-meta
   display: flex
@@ -48,7 +49,6 @@ a.comment-reply-link
   input.submit
     link-button: $color-main-fg $color-main-bg
     background-color: $color-main-bg
-    // border: 2px solid $color-main-fg
   .comment-notes
     margin-top: 0
   .comment-form-author
@@ -65,8 +65,3 @@ a.comment-reply-link
 
 #cancel-comment-reply-link
   link-fancy: red red
-
-#comments
-  max-width: $size-main-w
-  margin: auto
-  margin-top: 4em

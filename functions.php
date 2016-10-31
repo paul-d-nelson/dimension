@@ -102,7 +102,7 @@ add_filter( 'image_send_to_editor',
     function( $html, $id, $caption, $title, $align, $url, $size, $alt )
     {
         if( current_theme_supports( 'html5' )  && ! $caption )
-            $html = sprintf( '<figure>%s</figure>', $html ); // Modify to your needs!
+            $html = sprintf( '<figure class="post-figure">%s</figure>', $html ); // Modify to your needs!
 
         return $html;
     }

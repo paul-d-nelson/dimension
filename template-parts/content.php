@@ -66,6 +66,17 @@
 				'after'  => '</div>',
 			) );
 		?>
+
+		<!-- Share BEGIN -->
+		<?php if ( is_single() ): ?>
+			<?php $share_link = urlencode(get_the_permalink()); ?>
+			<ul class="share-icons">
+				<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_link; ?>" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+				<li><a href="https://twitter.com/intent/tweet/?url=<?php echo $share_link; ?>&via=Paul_D_Nelson" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+				<li><a href="https://plus.google.com/share?url=<?php echo $share_link; ?>" target="_blank"><i class="fa fa-google-plus-square"></i></a></li>
+			</ul>
+		<?php endif; ?>
+		<!-- Share END -->
 	</div><!-- .entry-content -->
 
 	<?php if (is_single()) : ?>
