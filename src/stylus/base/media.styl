@@ -1,7 +1,31 @@
-.post-figure
-  margin: 0 auto
+// .post-figure
+//   margin: 0 auto
+//   max-width: 960px
+//   overflow: hidden
+//   img
+//     width: 100%
+//     height: auto
+
+img.alignright
+a img.alignright
+  float: right
+  margin: 0 0 1em 1em
+
+img.alignleft
+a img.alignleft
+  float: left
+  margin: 0 1em 1em 0
+
+img.aligncenter
+a img.aligncenter
+  display: block
+  margin-left: 50%;
+  transform: translateX(-50%);
   max-width: 960px
-  overflow: hidden
-  img
-    width: 100%
+  height: auto
+
++below(1000px)
+  img.aligncenter
+  a img.aligncenter
+    max-width: 100%
     height: auto

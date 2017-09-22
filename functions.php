@@ -66,6 +66,8 @@ function dimension_setup() {
 	) ) );
 
 	add_theme_support('custom-logo');
+
+	add_editor_style();
 }
 endif;
 add_action( 'after_setup_theme', 'dimension_setup' );
@@ -98,15 +100,15 @@ function dimension_the_custom_logo() {
  * Wrap the inserted image html with <figure>
  * if the theme supports html5 and the current image has no caption:
  */
-add_filter( 'image_send_to_editor',
-    function( $html, $id, $caption, $title, $align, $url, $size, $alt )
-    {
-        if( current_theme_supports( 'html5' )  && ! $caption )
-            $html = sprintf( '<figure class="post-figure">%s</figure>', $html ); // Modify to your needs!
+// add_filter( 'image_send_to_editor',
+//     function( $html, $id, $caption, $title, $align, $url, $size, $alt )
+//     {
+//         if( current_theme_supports( 'html5' )  && ! $caption )
+//             $html = sprintf( '<figure class="post-figure">%s</figure>', $html ); // Modify to your needs!
 
-        return $html;
-    }
-, 10, 8 );
+//         return $html;
+//     }
+// , 10, 8 );
 
 /**
  * Add custom image sizes
@@ -204,8 +206,8 @@ function dimension_scripts() {
 	wp_enqueue_style( 'dimension-style', get_template_directory_uri() . '/public/css/main.css', array(), '20160929');
 
 	// Use a more current version of jQuery.
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js", false, null);
+	// wp_deregister_script('jquery');
+	// wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js", false, null);
 	wp_enqueue_script('jquery');
 
 	// wp_enqueue_script( 'dimension-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );

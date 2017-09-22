@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.6rem;
+  color: #222;
+}
+
+h1, h2, h3, p, ul, ol, pre {
+  max-width: 52.800000000000004rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin-top: 1.75em;
+  margin-bottom: 0.15em;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 2.4rem;
+}
+
+p {
+  line-height: 1.45;
+  margin-top: 1.45em;
+  margin-bottom: 1.45em;
+}
+
+a {
+  border: none;
+  text-decoration: none;
+  color: initial;
+  color: #222;
+  text-decoration: none;
+  background: transparent;
+  background-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 49%, #646464 50%, #646464 100%);
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 97.5%;
+}
+
+a:visited {
+  opacity: 0.8;
+}
+
+a:visited {
+  opacity: 1;
+}
+
+a:hover {
+  border: none;
+  text-decoration: none;
+  color: #222;
+  background-image: none;
+}
