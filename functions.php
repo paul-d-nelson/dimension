@@ -175,7 +175,7 @@ function dimension_fonts_url() {
 
 	/* translators: If there are characters in your language that are not supported by Montserrat, translate this to 'off'. Do not translate into your own language. */
 	if ( 'off' !== _x( 'on', 'Montserrat font: on or off', 'dimension' ) ) {
-		$fonts[] = 'Montserrat';
+		$fonts[] = 'Montserrat:500';
 	}
 
 	/* translators: If there are characters in your language that are not supported by Source Code Pro, translate this to 'off'. Do not translate into your own language. */

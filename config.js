@@ -20,5 +20,5 @@ module.exports = {
     src: './src/fonts/**/*.{eot,svg,ttf,woff,woff2}',
     dest: './public/fonts',
   },
-  devurl: 'storydimension.dev'
+  devurl: 'storydimension.app'
 }

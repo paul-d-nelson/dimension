@@ -1,6 +1,6 @@
-// =========================================================
+// =============================================================================
 // gulpfile.js
-// =========================================================
+// =============================================================================
 
 var gulp          = require('gulp'),
     rename        = require('gulp-rename'),
@@ -24,12 +24,12 @@ var gulp          = require('gulp'),
     browserSync   = require('browser-sync').create(),
     reload        = browserSync.reload;
 
-// -------------------------------------------------- Config
+// ---------------------------------------------------------------------- Config
 
 var config = require('./config');
 var production = !!util.env.production;
 
-// ---------------------------------------- Helper Functions
+// ------------------------------------------------------------ Helper Functions
 
 // Handle errors
 function notifyOnError(err) {
@@ -46,7 +46,7 @@ gulp.plumbedSrc = function () {
     .pipe(plumber({ errorHandler: notifyOnError }));
 };
 
-// ---------------------------------------------- Gulp Tasks
+// ------------------------------------------------------------------ Gulp Tasks
 
 // Clean the build directory
 gulp.task('clean', () => {
@@ -56,7 +56,9 @@ gulp.task('clean', () => {
 // Optimize Images
 gulp.task('images', () => {
   return gulp.plumbedSrc(config.images.src, {since: gulp.lastRun('images')})
-    .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+    .pipe(imagemin({ optimizationLevel: 3,
+      progressive: true,
+      interlaced: true }))
     .pipe(gulp.dest(config.images.dest))
     .pipe(notify({ title: 'Images', message: 'Images task complete' }));
 });
@@ -103,7 +105,7 @@ gulp.task('js:concat', () => {
     .pipe(notify({ title: 'Scripts', message: 'Scripts task complete' }));
 });
 
-// --------------------------------------------- Build Tasks
+// ----------------------------------------------------------------- Build Tasks
 
 // Build everything
 gulp.task('build', production ?
@@ -112,7 +114,8 @@ gulp.task('build', production ?
                                                       'images',
                                                       'fonts')) :
                    gulp.series('clean', gulp.parallel('styles',
-                                                      gulp.series('jshint', 'js:concat'),
+                                                      gulp.series('jshint',
+                                                                  'js:concat'),
                                                       'images',
                                                       'fonts')));
 
@@ -145,5 +148,5 @@ gulp.task('serve', () => {
   gulp.watch("./**/*.php").on('change', reload);
 });
 
-// --------------------------------------- Default Gulp Task
+// ----------------------------------------------------------- Default Gulp Task
 gulp.task('default', gulp.series('build', 'serve'));

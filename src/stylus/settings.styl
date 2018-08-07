@@ -6,11 +6,12 @@
 // ---------------
 
 // Common fonts
+$serif-f = "Times New Roman", Times, serif
 $sans-serif-f = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
 
 $helvetica-neue = "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif
 $helvetica = "Helvetica Neue", Helvetica, Arial, sans-serif
-$georgia = Georgia, Cambria, "Times New Roman", Times, serif
+$georgia = Georgia, Cambria, $serif-f
 $lucida-grande = "Lucida Grande", Tahoma, Verdana, Arial, sans-serif
 $monospace = Consolas, "Liberation Mono", Menlo, Courier, monospace
 $verdana = Verdana, Geneva, sans-serif
@@ -18,6 +19,9 @@ $roboto = 'Roboto', sans-serif
 
 $open-sans = 'Open Sans', $sans-serif-f
 $montserrat = 'Montserrat', $sans-serif-f
+
+$josefin-sans = 'Josefin Sans', $sans-serif-f
+$lora = 'Lora', $serif-f
 
 // Naming Conventions:
 //
@@ -27,7 +31,7 @@ $montserrat = 'Montserrat', $sans-serif-f
 
 // Fallback fonts
 // Will be used if webfonts fail to load and as webfonts are loading
-$font-main = $open-sans
+$font-main = $lora
 $font-header = $montserrat
 
 // Theme fonts
@@ -89,7 +93,7 @@ $concrete = #F2F2F2
 // $color-main-bg = #f5f4f3
 $color-primary = #3f67df
 $color-primary = #2a49db
-$color-main-bg = #fbfaf9
+$color-main-bg = white
 $color-main-fg = black
 $color-link-fg = black
 $color-text-l = lighten(black, 25%)
